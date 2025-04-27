@@ -135,3 +135,19 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+SELECT table_name 
+FROM information_schema.tables 
+WHERE table_schema = 'mydb';
+
+SELECT 'Customer' AS table_name, COUNT(*) AS row_count FROM Customer
+UNION ALL
+SELECT 'Plan', COUNT(*) FROM Plan
+UNION ALL
+SELECT 'Customer_Plan', COUNT(*) FROM Customer_Plan
+UNION ALL
+SELECT 'Transaction', COUNT(*) FROM `Transaction`
+UNION ALL
+SELECT 'Call_Traffic', COUNT(*) FROM Call_Traffic
+UNION ALL
+SELECT 'Cancellation', COUNT(*) FROM Cancellation;
