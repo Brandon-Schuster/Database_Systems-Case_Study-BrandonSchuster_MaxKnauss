@@ -1,4 +1,4 @@
--- Query 1: Customer Summary
+-- Customer Summary
 SELECT 
     c.customer_id,
     c.name,
@@ -14,7 +14,7 @@ LEFT JOIN Plan p ON cp.plan_id = p.plan_id
 LEFT JOIN Cancellation ca ON c.customer_id = ca.customer_id
 ORDER BY c.customer_id;
 
--- Query 2: Customer Call Log
+-- Customer Call Log
 SELECT 
     c.customer_id,
     c.name,
@@ -27,17 +27,17 @@ FROM
 JOIN Call_Traffic ct ON c.customer_id = ct.customer_id
 ORDER BY c.customer_id, ct.call_date;
 
--- Query 3: Plan Revenue Report
+-- Plan Revenue Report
 SELECT 
     p.plan_id,
     p.plan_name,
-    t.payment_method,  -- 🔥 Now showing how the plan was paid
+    t.payment_method,
     SUM(t.transaction_amount) AS total_revenue
 FROM 
     Plan p
 JOIN Transaction t ON p.plan_id = t.plan_id
 WHERE 
-    t.transaction_type IN ('Activation', 'Renewal')  -- only counting purchases
+    t.transaction_type IN ('Activation', 'Renewal')
 GROUP BY 
     p.plan_id, p.plan_name, t.payment_method
 ORDER BY 

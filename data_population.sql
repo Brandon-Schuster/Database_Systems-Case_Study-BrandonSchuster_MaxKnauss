@@ -46,3 +46,17 @@ VALUES
 INSERT INTO Cancellation (cancellation_date, customer_id, cancellation_reason)
 VALUES
 ('2025-04-20', 2, 'Switching to a different provider.');
+
+SELECT 'Customer' AS table_name, COUNT(*) AS row_count FROM Customer
+UNION ALL
+SELECT 'Plan', COUNT(*) FROM Plan
+UNION ALL
+SELECT 'Customer_Plan', COUNT(*) FROM Customer_Plan
+UNION ALL
+SELECT 'Transaction', COUNT(*) FROM `Transaction`
+UNION ALL
+SELECT 'Call_Traffic', COUNT(*) FROM Call_Traffic
+UNION ALL
+SELECT 'Cancellation', COUNT(*) FROM Cancellation;
+
+
