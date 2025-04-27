@@ -23,14 +23,14 @@ VALUES
 (3, 3),
 (4, 4);
 
--- Insert Transactions
-INSERT INTO Transaction (transaction_type, transaction_date, transaction_amount, customer_id, plan_id)
+-- Insert Transactions (NOW WITH PAYMENT METHOD!)
+INSERT INTO Transaction (transaction_type, transaction_date, transaction_amount, payment_method, customer_id, plan_id)
 VALUES
-('Activation', '2025-04-01', 29.99, 1, 1),
-('Renewal', '2025-05-01', 29.99, 1, 1),
-('Activation', '2025-04-02', 59.99, 2, 2),
-('Activation', '2025-04-03', 39.99, 3, 3),
-('Activation', '2025-04-04', 19.99, 4, 4);
+('Activation', '2025-04-01', 29.99, 'Credit Card', 1, 1),
+('Renewal', '2025-05-01', 29.99, 'Credit Card', 1, 1),
+('Activation', '2025-04-02', 59.99, 'Electronic Wallet', 2, 2),
+('Activation', '2025-04-03', 39.99, 'Credit Card', 3, 3),
+('Activation', '2025-04-04', 19.99, 'Debit Card', 4, 4);
 
 -- Insert Call Traffic
 INSERT INTO Call_Traffic (call_date, call_duration, call_type, call_cost, customer_id)
